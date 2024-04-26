@@ -26,3 +26,12 @@ modules:
       - type: git
         url: https://github.com/cvfosammmm/Lemma.git
         commit: 0a9d2cb9a704fabddd78f539ba1837faddcd7cec
+  - name: python3-mistune
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "mistune" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/f0/74/c95adcdf032956d9ef6c89a9b8a5152bf73915f8c633f3e3d88d06bd699c/mistune-3.0.2-py3-none-any.whl
+        sha256: 71481854c30fdbc938963d3605b72501f5c10a9320ecd412c121c163a1c7d205
