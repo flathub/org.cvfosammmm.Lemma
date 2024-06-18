@@ -34,4 +34,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/cvfosammmm/Lemma.git
-        commit: befff46bbe3b4bd363b3770a7f8d8c18983f0a4e
+        commit: efd3fcc5dc656cab5b9db585e6bead1406aa08aa
