@@ -8,6 +8,11 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
+  - --filesystem=xdg-run/gvfs
+  - --filesystem=xdg-run/gvfsd
+  - --talk-name=org.cvfosammmm.Lemma
+  - --own-name=org.cvfosammmm.Lemma
+
 modules:
   - name: python3-pyxdg
     buildsystem: simple
