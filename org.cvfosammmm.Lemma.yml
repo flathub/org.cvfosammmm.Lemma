@@ -1,6 +1,6 @@
 id: org.cvfosammmm.Lemma
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '48'
 sdk: org.gnome.Sdk
 command: lemma
 finish-args:
@@ -55,4 +55,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/cvfosammmm/Lemma.git
-        commit: 1cac5a051d70fb080121d251a9d97c0d581399cd
+        commit: c03df44955e3b1d15cb7d2f174a0cc43f09e2b24
