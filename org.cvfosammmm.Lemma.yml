@@ -4,6 +4,7 @@ runtime-version: '48'
 sdk: org.gnome.Sdk
 command: lemma
 finish-args:
+  - --filesystem=host
   - --share=ipc
   - --socket=fallback-x11
   - --socket=wayland
