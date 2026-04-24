@@ -1,6 +1,6 @@
 id: org.cvfosammmm.Lemma
 runtime: org.gnome.Platform
-runtime-version: '48'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 command: lemma
 finish-args:
@@ -25,8 +25,8 @@ modules:
         --prefix=${FLATPAK_DEST} "markdown-it-py" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/42/d7/1ec15b46af6af88f19b8e5ffea08fa375d433c998b8a7639e76935c14f1f/markdown_it_py-3.0.0-py3-none-any.whl
-        sha256: 355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1
+        url: https://files.pythonhosted.org/packages/94/54/e7d793b573f298e1c9013b8c4dade17d481164aa517d1d7148619c2cedbf/markdown_it_py-4.0.0-py3-none-any.whl
+        sha256: 87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147
       - type: file
         url: https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl
         sha256: 84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8
@@ -37,8 +37,18 @@ modules:
         --prefix=${FLATPAK_DEST} "html2text" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/1a/43/e1d53588561e533212117750ee79ad0ba02a41f52a08c1df3396bd466c05/html2text-2024.2.26.tar.gz
-        sha256: 05f8e367d15aaabc96415376776cdd11afd5127a77fce6e36afc60c563ca2c32
+        url: https://files.pythonhosted.org/packages/1d/84/1a0f9555fd5f2b1c924ff932d99b40a0f8a6b12f6dd625e2a47f415b00ea/html2text-2025.4.15-py3-none-any.whl
+        sha256: 00569167ffdab3d7767a4cdf589b7f57e777a5ed28d12907d8c58769ec734acc
+  - name: python3-pybind11
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
+    cleanup: ["*"]
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/88/c5/e98d9c51f3d5300d5e40ad9037dd6b3b60736fd02ab68dcc98c96be7592d/pybind11-3.0.2-py3-none-any.whl
+        sha256: f8a6500548919cc33bcd220d5f984688326f574fa97f1107f2f4fdb4c6fb019f
   - name: python3-Pillow
     buildsystem: simple
     build-commands:
@@ -46,8 +56,8 @@ modules:
         --prefix=${FLATPAK_DEST} "Pillow" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/64/9e/7e638579cce7dc346632f020914141a164a872be813481f058883ee8d421/Pillow-10.0.1.tar.gz
-        sha256: d72967b06be9300fed5cfbc8b5bafceec48bf7cdc7dab66b1d2549035287191d
+        url: https://files.pythonhosted.org/packages/1f/42/5c74462b4fd957fcd7b13b04fb3205ff8349236ea74c7c375766d6c82288/pillow-12.1.1.tar.gz
+        sha256: 9ad8fa5937ab05218e2b6a4cff30295ad35afd2f83ac592e68c0d871bb0fdbc4
   - name: lemma
     buildsystem: meson
     config-opts:
