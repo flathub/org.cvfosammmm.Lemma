@@ -1,0 +1,5 @@
+pybind11
+pyxdg
+markdown-it-py
+html2text
+Pillow
