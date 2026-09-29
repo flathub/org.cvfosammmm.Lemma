@@ -100,16 +100,19 @@ modules:
         url: https://files.pythonhosted.org/packages/66/bc/e68458dbbe42123bb3b2d35c1412613367e0826fbe0327e109c114a556ff/scikit_build_core-1.1.0-py3-none-any.whl
         sha256: ef439fc8b352913ef6e76257e3115a7910c9f294a2cf27781b6f571cf6cd0033
   - name: libzmq
-    buildsystem: cmake
+    buildsystem: cmake-ninja
+    builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_TESTS=OFF
-      - -DWITH_PERF_TOOL=OFF
-      - -DENABLE_DRAFT=OFF
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: archive
         url: https://github.com/zeromq/libzmq/releases/download/v4.3.5/zeromq-4.3.5.tar.gz
-        sha256: 66da94d3ec37bda7f2da54b679624523c99df6034c56e093ef3579ee551a34d6
+        sha256: 6653ef5910f17954861fe72332e68b03ca6e4d9c7160eb3a8de5a5a913bfab43
+        x-checker-data:
+          type: anitya
+          project-id: 16245
+          stable-only: true
+          url-template: https://github.com/zeromq/libzmq/releases/download/v$version/zeromq-$version.tar.gz
   - name: python3-jupyter-client
     buildsystem: simple
     build-options:
