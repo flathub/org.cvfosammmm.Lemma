@@ -9,8 +9,9 @@ finish-args:
   - --socket=wayland
   - --device=dri
   - --filesystem=home
-env:
-  JUPYTER_LOG_LEVEL: "ERROR"
+build-options:
+  env:
+    JUPYTER_LOG_LEVEL: "ERROR"
 modules:
   - name: python3-pyxdg
     buildsystem: simple
