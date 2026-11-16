@@ -71,16 +71,12 @@ modules:
         url: https://files.pythonhosted.org/packages/c0/57/e69a1de45ec7a99a707e9f1a5defa035a48de0cae2d8582451c72d2db456/pyproject_metadata-0.10.0-py3-none-any.whl
         sha256: b1e439a9f7560f9792ee5975dcf5e89d2510b1fc84a922d7e5d665aa9102d966
   - name: openblas
-    buildsystem: cmake-ninja
+    buildsystem: simple
     build-options:
       no-debuginfo: true
-    config-opts:
-      - -DBUILD_SHARED_LIBS=ON
-      - -DBUILD_STATIC_LIBS=OFF
-      - -DBUILD_TESTING=OFF
-      - -DNOFORTRAN=0
-      - -DUSE_OPENMP=1
-      - -DTARGET=ARMV8
+    build-commands:
+      - make -j${FLATPAK_BUILDER_N_JOBS} DYNAMIC_ARCH=1 NO_LAPACKE=0 NO_STATIC=1 USE_OPENMP=1 TARGET=ARMV8 PREFIX=${FLATPAK_DEST}
+      - make DYNAMIC_ARCH=1 NO_LAPACKE=0 NO_STATIC=1 USE_OPENMP=1 TARGET=ARMV8 PREFIX=${FLATPAK_DEST} install
     sources:
       - type: archive
         url: https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.34/OpenBLAS-0.3.34.tar.gz
