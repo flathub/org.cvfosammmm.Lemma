@@ -71,16 +71,22 @@ modules:
         url: https://files.pythonhosted.org/packages/c0/57/e69a1de45ec7a99a707e9f1a5defa035a48de0cae2d8582451c72d2db456/pyproject_metadata-0.10.0-py3-none-any.whl
         sha256: b1e439a9f7560f9792ee5975dcf5e89d2510b1fc84a922d7e5d665aa9102d966
   - name: openblas
-    buildsystem: simple
+    no-autogen: true
     build-options:
       no-debuginfo: true
-    build-commands:
-      - make -j${FLATPAK_BUILDER_N_JOBS} DYNAMIC_ARCH=1 NO_LAPACKE=0 NO_STATIC=1 USE_OPENMP=1 TARGET=ARMV8 PREFIX=${FLATPAK_DEST}
-      - make DYNAMIC_ARCH=1 NO_LAPACKE=0 NO_STATIC=1 USE_OPENMP=1 TARGET=ARMV8 PREFIX=${FLATPAK_DEST} install
+      cflags: -std=gnu18
+    make-args:
+      - DYNAMIC_ARCH=1
+      - FC=gfortran
+      - NO_CBLAS=1
+      - NO_LAPACKE=1
+      - USE_OPENMP=0
+    make-install-args:
+      - PREFIX=/app
     sources:
       - type: archive
-        url: https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.34/OpenBLAS-0.3.34.tar.gz
-        sha256: cd7e129868320cc2d033afa920e31202dfe0b8066a5b66661900ccc0f197dfed
+        url: https://github.com/xianyi/OpenBLAS/archive/v0.3.24.tar.gz
+        sha256: ceadc5065da97bd92404cac7254da66cc6eb192679cf1002098688978d4d5132
   - name: numpy
     buildsystem: simple
     build-commands:
