@@ -87,6 +87,24 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl
         sha256: d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762
+  - name: python3-fa2
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "fa2" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/c0/8f/e6b63f021cec43049f77b321623e95c28e5a3ac6c4cd278ae8d10a6f09bd/fa2-1.1.2.tar.gz
+        sha256: cb38954bc867b46b08d4f7f39e5886e107b407ba1e30742aab265f6b5c3fbf17
+      - type: file
+        url: https://files.pythonhosted.org/packages/4e/3a/8770c288c47f0b5c2a786d3c20e79f66fd245f2d42cd232d7cd5e00e83e5/numpy-2.5.5.tar.gz
+        sha256: 5cddc243c75114ba845f01b1f87aca1572dbf7b6c2d88636ed3e1d2bccd7f1bf
+      - type: file
+        url: https://files.pythonhosted.org/packages/7e/74/66de6258867beb2ef08f35f9f2ac017a52cacd5081714d239ff1a442d458/scipy-1.18.1.tar.gz
+        sha256: 52c4b7422442aba924d03ad4019852b08a92e64ea187b933135687bfe2747307
+      - type: file
+        url: https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl
+        sha256: c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73
   - name: python3-scikit-build-core
     buildsystem: simple
     build-commands:
@@ -255,4 +273,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/cvfosammmm/Lemma.git
-        commit: c33f25e57c896497bd4a6bb469a4c2b5aecc0d55
+        commit: a93ba4e14e48d6c0413af21577590a4e0a208844
