@@ -70,6 +70,21 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/c0/57/e69a1de45ec7a99a707e9f1a5defa035a48de0cae2d8582451c72d2db456/pyproject_metadata-0.10.0-py3-none-any.whl
         sha256: b1e439a9f7560f9792ee5975dcf5e89d2510b1fc84a922d7e5d665aa9102d966
+  - name: openblas
+    buildsystem: cmake-ninja
+    build-options:
+      no-debuginfo: true
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_STATIC_LIBS=OFF
+      - -DBUILD_TESTING=OFF
+      - -DNOFORTRAN=0
+      - -DUSE_OPENMP=1
+      - -DTARGET=ARMV8
+    sources:
+      - type: archive
+        url: https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.34/OpenBLAS-0.3.34.tar.gz
+        sha256: cd7e129868320cc2d033afa920e31202dfe0b8066a5b66661900ccc0f197dfed
   - name: numpy
     buildsystem: simple
     build-commands:
